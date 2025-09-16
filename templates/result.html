@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction Result</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+  body {
+    background: url('https://miro.medium.com/v2/resize:fit:1358/1*smf9XOCYX-7NuQSkE4m84g.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .card {
+    max-width: 850px;           /* Updated */
+    padding: 50px 60px;         /* Updated */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .btn-back {
+    margin-top: 20px;
+  }
+
+  .warning {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+  <div class="card text-center">
+    <h2 class="mb-4">🏡 Prediction Result</h2>
+
+    {% if prediction_value is not none and prediction_value > 0 %}
+      <p><strong>{{ prediction_label }}</strong> estimated price is 
+         <strong>₹ {{ prediction_value }} Lakhs</strong></p>
+    {% elif prediction_value is not none and prediction_value <= 0 %}
+      <p><strong>{{ prediction_label }}</strong> estimated price is 
+         <strong>₹ {{ prediction_value }} Lakhs</strong></p>
+      <p class="warning">⚠️ Warning: This seems like an unusually low price. Please check the inputs.</p>
+    {% else %}
+      <p>❗ Price prediction not available for <strong>{{ prediction_label }}</strong>.</p>
+    {% endif %}
+
+    <a href="/" class="btn btn-primary btn-back">Predict Another</a>
+    
+  </div>
+</body>
+</html>

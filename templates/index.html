@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>House Price Prediction</title>
+    <style>
+        body {
+            background-image: url('https://png.pngtree.com/background/20230517/original/pngtree-street-view-of-houses-in-this-neighbourhood-picture-image_2636977.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background: rgba(250, 247, 247, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            margin-right: 55px;
+        }
+
+        h1 {
+            text-align: center;
+            font-style: italic;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            width: 150px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            flex: 1;
+            padding: 6px;
+            border: 1px solid #111010;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<form action="/predict" method="post">
+    <h1>House Price Prediction</h1>
+
+    <div class="form-group"><label>Property Name:</label>
+        <input type="text" name="Property_Name" required></div>
+    <div class="form-group">
+        <label>Location:</label>
+        <select name="Location" required>
+            <option value="1">Tambaram</option>
+            <option value="2">Velachery</option>
+            <option value="3">T. Nagar</option>
+            <option value="4">Porur</option>
+            <option value="5">Adyar</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Region:</label>
+        <select name="Region" required>
+            <option value="1">North</option>
+            <option value="2">South</option>
+            <option value="3">East</option>
+            <option value="4">West</option>
+            <option value="5">Central</option>
+        </select>
+    </div>
+    <div class="form-group"><label>Property Age:</label><input type="number" name="Property_Age" min="0" required></div>
+    <div class="form-group">
+        <label>Availability:</label>
+        <select name="Availability" required>
+            <option value="1">Ready to Move</option>
+            <option value="0">Under Construction</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Area Type:</label>
+        <select name="Area_Type" required>
+            <option value="1">Built-up Area</option>
+            <option value="2">Super Built-up Area</option>
+            <option value="3">Plot Area</option>
+        </select>
+    </div>
+    <div class="form-group"><label>Area (SqFt):</label>
+        <input type="number" name="Area_SqFt" required></div>
+    <div class="form-group"><label>Rate per SqFt:</label>
+        <input type="number" name="Rate_SqFt" required></div>
+    <div class="form-group"><label>Floor Number:</label>
+        <input type="number" name="Floor_No" required></div>
+    <div class="form-group"><label>Bedroom Count:</label>
+        <input type="number" name="Bedroom" required></div>
+    <div class="form-group"><label>Bathroom Count:</label>
+        <input type="number" name="Bathroom" required></div>
+    <div class="form-group">
+        <label>Parking:</label>
+        <select name="Parking" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+    </div>
+    <button type="submit">Submit Property</button>
+</form>
+</body>
+</html>
